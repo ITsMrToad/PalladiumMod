@@ -46,7 +46,7 @@ public class Palladium {
     public static final Deduplicator<ResourceLocation> KEY_REGISTRY = new Deduplicator<>();
     public static final Deduplicator<ResourceLocation> KEY_LOCATION = new Deduplicator<>();
 
-    public static final SodiumForksCompat SODIUM_FORKS_COMPAT = new SodiumForksCompat("embeddium"); // !!!
+    public static final SodiumForksCompat SODIUM_FORKS_COMPAT = new SodiumForksCompat(); 
 
     @Nullable public static PalladiumConfig CONFIG;
 
@@ -64,14 +64,9 @@ public class Palladium {
         }
 
         MinecraftForge.EVENT_BUS.register(this);
+        LOGGER.info("Start loading Palladium mod {}", MOD_VERSION);
     }
 
-    public static boolean showTitleScreenWarn() {
-        if (!SODIUM_FORKS_COMPAT.hasFork()) {
-            return false;
-        }
-        return !SODIUM_FORKS_COMPAT.needed().equals(SODIUM_FORKS_COMPAT.getInstalled());
-    }
 
     public static boolean isResourceDeduplication(ResourceLocationDeduplication only) {
         return checkConfigAndGetValue(cfg -> {
