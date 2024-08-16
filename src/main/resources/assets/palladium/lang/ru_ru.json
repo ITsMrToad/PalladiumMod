@@ -1,6 +1,4 @@
 {
-  "palladium.sodium_forks_incompatible": "У вас установлен '%s', эта версия Palladium поддерживает '%s'.",
-
   "palladium.resource_loc_dedup.all": "Все",
   "palladium.resource_loc_dedup.none": "Никакие",
   "palladium.resource_loc_dedup.only_rl": "Только пути ресурсов",
@@ -16,7 +14,4 @@
   "palladium.config.resource_location_deduplication.tooltip": "Удаляет дупликаты путей ресурсов. (Требуется перезапуск)",
   "palladium.config.modern_state_holder": "Улучшенный State holder",
   "palladium.config.modern_state_holder.tooltip": "Кэширует блоки, улучшает коллекции. Выключите эту опцию если у вас возникают проблемы с блоками. (Требуется перезапуск)",
-  "palladium.config.modern_mob_goal_selector": "Улучшенный селектор задач",
-  "palladium.config.modern_mob_goal_selector.tooltip": "Включает новый селектор задач(селектор целей), Выключите эту опции если мобы ведут себя не правильно. (Требуется перезапуск)"
-
 }
