@@ -2,7 +2,7 @@
 
 Another optimizing mod, provides deduplication and improved memory control.
 
-Support sodium forks. More in 'Compat'
+Support sodium and his forks. More in 'Compat'
 
 <img align="left" width="130" src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/supported/forge_vector.svg">
 <img align="right" width="150" src="src/main/resources/logo.png">
