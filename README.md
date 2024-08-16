@@ -2,7 +2,7 @@
 
 Another optimizing mod, provides deduplication and improved memory control.
 
-Support sodium forks(Embeddium/Xenon). More in 'Compat'
+Support sodium forks. More in 'Compat'
 
 <img align="left" width="130" src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/supported/forge_vector.svg">
 <img align="right" width="150" src="src/main/resources/logo.png">
@@ -38,11 +38,9 @@ And a few more minor fixes/improves...
 Support Embeddium/Xenon.
 <br />
 For in game config: 
-- on forge needs embeddium 0.3+.
-- on neoforged needs embeddium
-
-For palladium compatibility with sodium forks you should pay attention to the postscript next to the loader.
-<br />
-Example: `Palladium-1.0.0-1.20-1.20.4-forge-Embeddium`
+- on forge needs embeddium/xenon 0.3+.
+- on neoforged needs embeddium/xenon
 
 </details>
+
+### [Support Me On Boosty⚡](https://boosty.to/mr_toad)
