@@ -1,0 +1,22 @@
+{
+  "palladium.sodium_forks_incompatible": "You have '%s' but this Palladium support '%s'. \n You can find Palladium for '%s' on Modrinth.",
+
+  "palladium.resource_loc_dedup.all": "All",
+  "palladium.resource_loc_dedup.none": "None",
+  "palladium.resource_loc_dedup.only_rl": "Only resource location",
+  "palladium.resource_loc_dedup.only_mrl": "Only model rl",
+
+  "palladium.config" : "General",
+
+  "palladium.config.shader_uniform_caching": "Shader uniform caching",
+  "palladium.config.shader_uniform_caching.tooltip": "Caches shader uniforms, reducing the number of times they are invoked.",
+  "palladium.config.resource_key_deduplication": "Resource key deduplication",
+  "palladium.config.resource_key_deduplication.tooltip": "Deletes duplicates of resource key. (Needs restart)",
+  "palladium.config.resource_location_deduplication": "Resource location deduplication: ",
+  "palladium.config.resource_location_deduplication.tooltip": "Deletes duplicates of chosen resource location. (Needs restart)",
+  "palladium.config.modern_state_holder": "Modern state holder",
+  "palladium.config.modern_state_holder.tooltip": "Caches blocks, improve collections. Disable this option if you have problems with blocks. (Needs restart)",
+  "palladium.config.modern_mob_goal_selector": "Modern mob goal selector",
+  "palladium.config.modern_mob_goal_selector.tooltip": "Enable new mob goal selector (target selector), If mobs do not lead themselves correctly, you can disable this option. (Needs restart)"
+
+}

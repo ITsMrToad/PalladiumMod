@@ -1,0 +1,36 @@
+{
+  "required": true,
+  "package": "com.mr_toad.palladium.core.mixin",
+  "refmap": "palladium.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ComposterBlockMixin$EmptyContainerMixin",
+    "ComposterBlockMixin$InputContainerMixin",
+    "ComposterBlockMixin$OutputContainerMixin",
+    "CompoundTagMixin",
+
+    "ResourceKeyMixin",
+    "ResourceLocationMixin",
+    "StateHolderMixin",
+
+    "accessor.GoalSelectorAccessor",
+    "accessor.HurtByTargetGoalAccessor",
+    "accessor.TargetGoalAccessor",
+
+    "oculus.IrisMixin",
+    "oculus.PipelineManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "BakedQuadMixin",
+    "GLStateManagerMixin",
+    "ModelResourceLocationMixin",
+    "MultipartBakedModelMixin",
+    "SimpleBakedModelMixin",
+    "TitleScreenMixin",
+    "WeightedBakedModelMixin",
+    "embeddium.EmbeddiumVideoOptionsScreenMixin"
+  ]
+}

@@ -1,0 +1,19 @@
+package com.mr_toad.palladium.core.event;
+
+import com.mr_toad.palladium.client.resource.PalladiumCacheReloadListener;
+import com.mr_toad.palladium.client.shader.ShaderCacheLoader;
+import com.mr_toad.palladium.core.Palladium;
+import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
+import net.minecraftforge.event.level.LevelEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = Palladium.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class PCommonEvents {
+
+    @SubscribeEvent
+    public static void registerReloadListeners(RegisterClientReloadListenersEvent event) {
+        event.registerReloadListener(PalladiumCacheReloadListener.LISTENER);
+    }
+
+}
