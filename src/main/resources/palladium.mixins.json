@@ -29,7 +29,6 @@
     "ModelResourceLocationMixin",
     "MultipartBakedModelMixin",
     "SimpleBakedModelMixin",
-    "TitleScreenMixin",
     "WeightedBakedModelMixin",
     "embeddium.EmbeddiumVideoOptionsScreenMixin"
   ]
