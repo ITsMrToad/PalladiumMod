@@ -46,7 +46,7 @@ public class Palladium {
     public static final Deduplicator<ResourceLocation> KEY_REGISTRY = new Deduplicator<>();
     public static final Deduplicator<ResourceLocation> KEY_LOCATION = new Deduplicator<>();
 
-    public static final SodiumForksCompat SODIUM_FORKS_COMPAT = new SodiumForksCompat("xenon");
+    public static final SodiumForksCompat SODIUM_FORKS_COMPAT = new SodiumForksCompat("embeddium"); // !!!
 
     @Nullable public static PalladiumConfig CONFIG;
 
