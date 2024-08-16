@@ -2,12 +2,10 @@ package com.mr_toad.palladium.integration;
 
 import com.mr_toad.palladium.integration.mod.EmbeddiumIntegration;
 import com.mr_toad.palladium.integration.mod.XenonIntegration;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 
 import java.util.Objects;
 
-public record SodiumForksCompat(String needed) {
+public class SodiumForksCompat {
 
     public String getInstalled() {
         String s = "none";
@@ -27,7 +25,4 @@ public record SodiumForksCompat(String needed) {
         return !Objects.equals(this.getInstalled(), "none");
     }
 
-    public Component warnMsg() {
-        return Component.translatable("palladium.sodium_forks_incompatible", this.getInstalled(), this.needed(), this.getInstalled()).withStyle(ChatFormatting.RED);
-    }
 }
