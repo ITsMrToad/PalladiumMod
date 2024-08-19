@@ -1,14 +1,12 @@
 package com.mr_toad.palladium.core;
 
 import com.mr_toad.palladium.common.Deduplicator;
-import com.mr_toad.palladium.common.util.ToBooleanFunction;
 import com.mr_toad.palladium.core.config.PalladiumConfig;
 import com.mr_toad.palladium.core.config.ResourceLocationDeduplication;
 import com.mr_toad.palladium.integration.SodiumForksCompat;
 import it.unimi.dsi.fastutil.Hash;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -18,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.function.ToIntFunction;
 
 @Mod(value = Palladium.MODID)
 public class Palladium {
@@ -47,40 +44,20 @@ public class Palladium {
 
     public static final SodiumForksCompat SODIUM_FORKS_COMPAT = new SodiumForksCompat(); 
 
-    @Nullable public static PalladiumConfig CONFIG;
+    public static PalladiumConfig CONFIG = PalladiumConfig.loadOrCreate();
 
     public Palladium() {     
-        CONFIG = PalladiumConfig.loadOrCreate();
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-
     public static boolean isResourceDeduplication(ResourceLocationDeduplication only) {
-        return checkConfigAndGetValue(cfg -> {
-            if (cfg.resourceLocationDeduplication == ResourceLocationDeduplication.ALL) {
-                return true;
-            } else if (cfg.resourceLocationDeduplication == ResourceLocationDeduplication.NONE) {
-                return false;
-            } else {
-                return cfg.resourceLocationDeduplication == only;
-            }
-        });
-    }
-
-    public static boolean checkConfigAndGetValue(ToBooleanFunction<PalladiumConfig> getter) {
-        if (CONFIG != null) {
-            return getter.applyAsBoolean(CONFIG);
-        } else {
-            return true;
-        }
-    }
-
-    public static int checkConfigAndGetValueInt(ToIntFunction<PalladiumConfig> getter) {
-        if (CONFIG != null) {
-            return getter.applyAsInt(CONFIG);
-        } else {
-            return 0;
-        }
+        if (CONFIG.resourceLocationDeduplication == ResourceLocationDeduplication.ALL) {
+             return true;
+         } else if (CONFIG.resourceLocationDeduplication == ResourceLocationDeduplication.NONE) {
+            return false;
+         } else {
+            return CONFIG.resourceLocationDeduplication == only;
+         }
     }
 
     public static ResourceLocation makeRl(String path) {
