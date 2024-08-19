@@ -14,7 +14,7 @@ public class ShaderCacheLoader {
 
     public static void reload(String log) {
         RenderSystem.assertOnRenderThread();
-        if (!Palladium.checkConfigAndGetValue(cfg -> cfg.enableShaderUniformCaching)) {
+        if (!Palladium.CONFIG.enableShaderUniformCaching) {
             if (!SHADER_CACHE.isEmpty()) {
                 SHADER_CACHE.clear();
             }
