@@ -1,6 +1,5 @@
 package com.mr_toad.palladium.core;
 
-import com.mr_toad.lib.mtjava.strings.func.StringSupplier;
 import com.mr_toad.palladium.common.Deduplicator;
 import com.mr_toad.palladium.common.util.ToBooleanFunction;
 import com.mr_toad.palladium.core.config.PalladiumConfig;
@@ -19,12 +18,12 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.ToIntFunction;
 
 @Mod(value = Palladium.MODID)
 public class Palladium {
 
     public static final String MODID = "palladium";
-    public static final StringSupplier MOD_VERSION = () -> Objects.requireNonNullElse(ModList.get().getModFileById(MODID).versionString(), "unknown");
     public static final Logger LOGGER = LoggerFactory.getLogger("Palladium");
 
     public static final Deduplicator<String> NAMESPACES = new Deduplicator<>();
@@ -50,21 +49,9 @@ public class Palladium {
 
     @Nullable public static PalladiumConfig CONFIG;
 
-    public Palladium() {
-        final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        if (SODIUM_FORKS_COMPAT.hasFork()) {
-            if (CONFIG == null) {
-                CONFIG = PalladiumConfig.loadOrCreate();
-            }
-        } else {
-            if (CONFIG != null) {
-                CONFIG = null;
-            }
-        }
-
+    public Palladium() {     
+        CONFIG = PalladiumConfig.loadOrCreate();
         MinecraftForge.EVENT_BUS.register(this);
-        LOGGER.info("Start loading Palladium mod {}", MOD_VERSION);
     }
 
 
@@ -85,6 +72,14 @@ public class Palladium {
             return getter.applyAsBoolean(CONFIG);
         } else {
             return true;
+        }
+    }
+
+    public static int checkConfigAndGetValueInt(ToIntFunction<PalladiumConfig> getter) {
+        if (CONFIG != null) {
+            return getter.applyAsInt(CONFIG);
+        } else {
+            return 0;
         }
     }
 
