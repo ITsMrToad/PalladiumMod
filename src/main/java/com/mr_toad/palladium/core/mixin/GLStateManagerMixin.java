@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class GLStateManagerMixin {
     @Inject(method = "_glGetUniformLocation", at = @At("RETURN"), cancellable = true)
     private static void getUniform(int u, CharSequence sequence, CallbackInfoReturnable<Integer> cir) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableShaderUniformCaching)) {
+        if (Palladium.CONFIG.enableShaderUniformCaching) {
             cir.setReturnValue(ShaderCacheLoader.uniform(u, sequence));
         }
     }
