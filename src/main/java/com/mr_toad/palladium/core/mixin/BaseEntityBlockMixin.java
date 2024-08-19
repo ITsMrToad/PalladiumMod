@@ -15,7 +15,7 @@ public abstract class BaseEntityBlockMixin {
 
     @Inject(method = "getRenderShape", at = @At("RETURN"), cancellable = true)
     public void getFrozenShape(BlockState state, CallbackInfoReturnable<RenderShape> cir) {
-        if (BlockEntityRendererFreezerManager.canReplace(state)) {
+        if (Palladium.CONFIG.enableBlockEntityReplace && ((FrozenBlockEntitiesGetter) Minecraft.getInstance().levelRenderer).palladium$get().stream().map(BlockEntity::getBlockState).toList().contains(state)) {
             cir.setReturnValue(RenderShape.MODEL);
         }
     }
