@@ -2,8 +2,10 @@
   "required": true,
   "package": "com.mr_toad.palladium.core.mixin",
   "refmap": "palladium.refmap.json",
+  "minVersion" : "0.8",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BaseEntityBlockMixin",
     "ComposterBlockMixin$EmptyContainerMixin",
     "ComposterBlockMixin$InputContainerMixin",
     "ComposterBlockMixin$OutputContainerMixin",
@@ -25,11 +27,15 @@
   },
   "client": [
     "BakedQuadMixin",
+    "BlockEntityRenderDispatcherMixin",
     "GLStateManagerMixin",
     "ModelResourceLocationMixin",
     "MultipartBakedModelMixin",
     "SimpleBakedModelMixin",
     "WeightedBakedModelMixin",
+
+    "accessor.LevelRendererAccessor",
+
     "embeddium.EmbeddiumVideoOptionsScreenMixin"
   ]
 }
