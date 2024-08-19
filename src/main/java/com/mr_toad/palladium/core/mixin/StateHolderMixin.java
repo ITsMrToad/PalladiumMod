@@ -35,7 +35,7 @@ public abstract class StateHolderMixin<O, S> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void reinit(O owner, ImmutableMap<Property<?>, Comparable<?>> entries, MapCodec<S> mapCodec, CallbackInfo ci) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableModernStateHolder)) {
+        if (Palladium.CONFIG.enableModernStateHolder) {
             this.palladium$newValues = new GoodImmutableMap<>(this.values);
         } else {
             this.palladium$newValues = new GoodImmutableMap<>();
@@ -44,14 +44,14 @@ public abstract class StateHolderMixin<O, S> {
 
     @Inject(method = "hasProperty", at = @At("RETURN"), cancellable = true)
     public <T extends Comparable<T>> void hasProperty(Property<T> property, CallbackInfoReturnable<Boolean> cir) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableModernStateHolder)) {
+        if (Palladium.CONFIG.enableModernStateHolder) {
             cir.setReturnValue(this.palladium$newValues.containsKey(property));
         }
     }
 
     @Inject(method = "getValue", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/properties/Property;getValueClass()Ljava/lang/Class;", shift = At.Shift.BEFORE), cancellable = true)
     public <T extends Comparable<T>> void getValue(Property<T> property, CallbackInfoReturnable<T> cir) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableModernStateHolder)) {
+        if (Palladium.CONFIG.enableModernStateHolder) {
             Comparable<?> comparable = this.values.get(property);
             cir.setReturnValue(property.getValueClass().cast(comparable));
             cir.cancel();
@@ -60,14 +60,14 @@ public abstract class StateHolderMixin<O, S> {
 
     @Inject(method = "getOptionalValue", at = @At(value = "INVOKE", target = "Ljava/util/Optional;of(Ljava/lang/Object;)Ljava/util/Optional;"), cancellable = true)
     public <T extends Comparable<T>> void getOptionalValue(Property<T> property, CallbackInfoReturnable<Optional<T>> cir) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableModernStateHolder)) {
+        if (Palladium.CONFIG.enableModernStateHolder) {
             cir.setReturnValue(Optional.of(this.getValue(property)));
         }
     }
 
     @Inject(method = "populateNeighbours", at = @At("RETURN"))
     private void postPopulateNeighbours(Map<Map<Property<?>, Comparable<?>>, S> states, CallbackInfo ci) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableModernStateHolder)) {
+        if (Palladium.CONFIG.enableModernStateHolder) {
             this.neighbours = new GoodImmutableTable<>(this.neighbours, StateHolderCache.getTableCache(this.owner));
         }
     }
