@@ -30,10 +30,17 @@ public abstract class ModelResourceLocationMixin extends ResourceLocation implem
 
     @Inject(method = "<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lnet/minecraft/resources/ResourceLocation$Dummy;)V", at = @At("RETURN"))
     private void cacheInit(String namespace, String path, String var, ResourceLocation.Dummy dummy, CallbackInfo ci) {
-        this.palladium$properties = Arrays.stream(this.variant.split(",")).map(Palladium.PROPERTIES::deduplicate).toArray(String[]::new);
+        this.palladium$declareProperties();
         this.variant = String.join(",", this.palladium$properties());
     }
 
+    @Inject(method = "<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", at = @At("RETURN"))
+    private void cacheInitVanilla(String namespace, String path, String var, CallbackInfo ci) {
+        this.palladium$declareProperties();
+        this.variant = String.join(",", this.palladium$properties());
+    }
+
+    
     @Inject(method = "getVariant", at = @At("RETURN"), cancellable = true)
     private void getVariantByProperties(CallbackInfoReturnable<String> cir) {
         if (this.palladium$properties().length != 0) {
@@ -50,4 +57,8 @@ public abstract class ModelResourceLocationMixin extends ResourceLocation implem
     public String[] palladium$properties() {
         return this.palladium$properties;
     }
+
+     @Unique private void palladium$declareProperties() {
+        this.palladium$properties = Arrays.stream(this.variant.split(",")).map(Palladium.PROPERTIES::deduplicate).toArray(String[]::new);
+     }
 }
