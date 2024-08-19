@@ -1,6 +1,9 @@
 package com.mr_toad.palladium.client.shader;
 
-import com.google.common.collect.Maps;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.lwjgl.opengl.GL20;
 
 import java.util.Map;
@@ -9,7 +12,7 @@ import java.util.Objects;
 public class ShaderProgramCache {
 
     private final int id;
-    private final Map<String, Integer> uniforms = Maps.newHashMap();
+    private final Object2IntMap<String> uniforms = new Object2IntOpenHashMap<>();
 
     public ShaderProgramCache(int id) {
         this.id = id;
