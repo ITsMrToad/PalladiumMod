@@ -19,7 +19,7 @@ public abstract class ResourceKeyMixin {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void cacheInit(ResourceLocation registry, ResourceLocation location, CallbackInfo ci) {
-        if (Palladium.checkConfigAndGetValue(cfg -> cfg.enableResourceKeyDedup)) {
+        if (Palladium.CONFIG.enableResourceKeyDedup) {
             this.registryName = Palladium.KEY_REGISTRY.deduplicate(this.registryName);
             this.location = Palladium.KEY_LOCATION.deduplicate(this.location);
         }
