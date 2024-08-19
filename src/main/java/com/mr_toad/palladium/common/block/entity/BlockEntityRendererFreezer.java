@@ -19,7 +19,6 @@ import java.util.concurrent.Executors;
 
 public class BlockEntityRendererFreezer {
 
-    private final ExecutorService tick = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setNameFormat("CRRT-%s").build());
     private final ObjectList<BlockEntity> frozen = new ObjectArrayList<>();
 
     private final Level level;
@@ -33,11 +32,14 @@ public class BlockEntityRendererFreezer {
             return;
         }
 
-        this.getTickService().submit(() -> rendered.stream().filter(blockEntity -> blockEntity instanceof Container).forEach(blockEntity -> ForgeRegistries.BLOCKS.getEntries().stream().map(Map.Entry::getValue).filter(block -> blockEntity.getBlockState().is(block)).forEach(block -> {
+        rendered.stream().filter(blockEntity -> blockEntity instanceof Container).forEach(blockEntity -> {
             BlockPos blockPos = blockEntity.getBlockPos();
             if (!this.getLevel().getBlockState(blockPos).is(blockEntity.getBlockState().getBlock())) {
                 return;
             }
+
+            int range = Palladium.checkConfigAndGetValueInt(cfg -> cfg.blockEntityReplaceRange);
+
             this.getLevel().getEntitiesOfClass(Player.class, new AABB(blockPos).inflate(5.0D), player -> {
                 if (!player.isAlive()) {
                     return false;
@@ -49,26 +51,20 @@ public class BlockEntityRendererFreezer {
 
                 return true;
             }).forEach(player -> {
-                if (player.distanceToSqr(blockPos.getCenter()) > 5.0D) {
+                if (player.distanceToSqr(blockPos.getCenter()) > range) {
                     this.frozen.add(blockEntity);
                 } else {
                     this.frozen.remove(blockEntity);
                 }
             });
-        })));
-
+        });
     }
 
     public ImmutableList<BlockEntity> getFrozen() {
         return ImmutableList.copyOf(this.frozen);
     }
 
-    public ExecutorService getTickService() {
-        return this.tick;
-    }
-
     public Level getLevel() {
         return this.level;
     }
-
 }
