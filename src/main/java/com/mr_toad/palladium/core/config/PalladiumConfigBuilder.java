@@ -24,9 +24,7 @@ public class PalladiumConfigBuilder {
         this.storage = new PalladiumConfigStorage(cfg);
     }
 
-    public void build(List<OptionPage> pages) {
-        OptionGroup.Builder group = OptionGroup.createBuilder();
-
+      public void build(List<OptionPage> pages) {
         OptionImpl<PalladiumConfig, Boolean> shaderCache = OptionImpl.createBuilder(boolean.class, this.storage)
                 .setName(Component.translatable("palladium.config.shader_uniform_caching"))
                 .setTooltip(Component.translatable("palladium.config.shader_uniform_caching.tooltip"))
@@ -45,6 +43,25 @@ public class PalladiumConfigBuilder {
                 .setFlags().setImpact(OptionImpact.LOW).setControl(TickBoxControl::new)
                 .setBinding((cfg, b) -> cfg.enableResourceKeyDedup = b, cfg -> cfg.enableResourceKeyDedup).build();
 
+        OptionImpl<PalladiumConfig, Boolean> composterFix = OptionImpl.createBuilder(boolean.class, this.storage)
+                .setName(Component.translatable("palladium.config.composter_fix"))
+                .setTooltip(Component.empty())
+                .setFlags().setImpact(OptionImpact.LOW).setControl(TickBoxControl::new)
+                .setBinding((cfg, b) -> cfg.enableComposterFix = b, cfg -> cfg.enableComposterFix).build();
+
+        OptionImpl<PalladiumConfig, Boolean> quadDedup = OptionImpl.createBuilder(boolean.class, this.storage)
+                .setName(Component.translatable("palladium.config.quads_deduplication"))
+                .setTooltip(Component.translatable("palladium.config.quads_deduplication.tooltip"))
+                .setFlags().setImpact(OptionImpact.LOW).setControl(TickBoxControl::new)
+                .setBinding((cfg, b) -> cfg.enableQuadsDedup = b, cfg -> cfg.enableQuadsDedup).build();
+
+        OptionImpl<PalladiumConfig, Long> maxNbtSize = OptionImpl.createBuilder(long.class, this.storage)
+                .setName(Component.translatable("palladium.config.maxNbtPacketSize"))
+                .setTooltip(Component.translatable("palladium.config.maxNbtPacketSize.tooltip"))
+                .setFlags().setImpact(OptionImpact.HIGH).setControl(cfg -> new LongSliderControl(cfg, 1000000, 20000000, 100000, value -> Component.literal(String.valueOf(value))))
+                .setBinding((cfg, b) -> cfg.maxNbtPacketSize = b, cfg -> cfg.maxNbtPacketSize).build();
+
+
         OptionImpl<PalladiumConfig, ResourceLocationDeduplication> rlDeduplication = OptionImpl.createBuilder(ResourceLocationDeduplication.class, this.storage)
                 .setName(Component.translatable("palladium.config.resource_location_deduplication"))
                 .setTooltip(Component.translatable("palladium.config.resource_key_deduplication.tooltip"))
@@ -55,7 +72,10 @@ public class PalladiumConfigBuilder {
                         Component.translatable("palladium.resource_loc_dedup.only_mrl")
                 })).setBinding((cfg, b) -> cfg.resourceLocationDeduplication = b, cfg -> cfg.resourceLocationDeduplication).build();
 
-        pages.add(new OptionPage(OptionIdentifier.create(Palladium.makeRl("general")), Component.translatable("palladium.config"), ImmutableList.of(group.add(shaderCache).add(modernStateHolder).add(rkDeduplication).add(rlDeduplication).build())));
+        OptionGroup g1 = OptionGroup.createBuilder().add(rkDeduplication).add(rlDeduplication).add(quadDedup).build();
+        OptionGroup g2 = OptionGroup.createBuilder().add(shaderCache).add(modernStateHolder).add(composterFix).add(maxNbtSize).build();
+
+        pages.add(new OptionPage(OptionIdentifier.create(Palladium.makeRl("general")), Component.translatable("stat.generalButton"), ImmutableList.of(g1, g2)));
     }
 
 }
