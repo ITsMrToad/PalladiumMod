@@ -1,0 +1,17 @@
+{
+  "palladium.resource_loc_dedup.all": "全部",
+  "palladium.resource_loc_dedup.none": "無",
+  "palladium.resource_loc_dedup.only_rl": "僅資源位置",
+  "palladium.resource_loc_dedup.only_mrl": "僅模型資源位置",
+
+  "palladium.config" : "一般",
+
+  "palladium.config.shader_uniform_caching": "著色器統一變數快取",
+  "palladium.config.shader_uniform_caching.tooltip": "快取著色器統一變數，減少它們被呼叫的次數。",
+  "palladium.config.resource_key_deduplication": "資源鍵值去重複",
+  "palladium.config.resource_key_deduplication.tooltip": "刪除重複的資源鍵值。（需要重新啟動）",
+  "palladium.config.resource_location_deduplication": "資源位置去重複：",
+  "palladium.config.resource_location_deduplication.tooltip": "刪除所選資源位置的重複項。（需要重新啟動）",
+  "palladium.config.modern_state_holder": "新式狀態持有者",
+  "palladium.config.modern_state_holder.tooltip": "快取方塊，改進集合。如果你有方塊問題，請停用此選項。（需要重新啟動）"
+}
