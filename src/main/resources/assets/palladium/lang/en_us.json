@@ -13,5 +13,5 @@
   "palladium.config.resource_location_deduplication": "Resource location deduplication: ",
   "palladium.config.resource_location_deduplication.tooltip": "Deletes duplicates of chosen resource location. (Needs restart)",
   "palladium.config.modern_state_holder": "Modern state holder",
-  "palladium.config.modern_state_holder.tooltip": "Caches blocks, improve collections. Disable this option if you have problems with blocks. (Needs restart)",
+  "palladium.config.modern_state_holder.tooltip": "Caches blocks, improve collections. Disable this option if you have problems with blocks. (Needs restart)"
 }
