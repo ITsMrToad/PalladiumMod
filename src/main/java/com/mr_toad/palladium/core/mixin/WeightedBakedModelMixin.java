@@ -1,6 +1,6 @@
 package com.mr_toad.palladium.core.mixin;
 
-import com.mr_toad.palladium.common.util.ImmutableArrayList;
+import com.mr_toad.lib.mtjava.collections.ImmutableArrayList;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.WeightedBakedModel;
 import net.minecraft.util.random.WeightedEntry;
