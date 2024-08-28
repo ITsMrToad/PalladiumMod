@@ -5,7 +5,8 @@ Another optimizing mod, provides deduplication and improved memory control.
 Support sodium and his forks. More in 'Compat'
 
 <img align="left" width="130" src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/supported/forge_vector.svg">
-<img align="left" width="130" src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/documentation/issues_64h.png">
+<img align="left" width="130" src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/supported/fabric_64h.png">
+<img align="left" width="130" src="https://github.com/intergrav/devins-badges/blob/v3/assets/cozy/supported/quilt_64h.png">
 <img align="right" width="150" src="src/main/resources/logo.png">
 
 <br />
@@ -16,12 +17,6 @@ Support sodium and his forks. More in 'Compat'
 - Resoource key
 - Resource location
 - Verticies
-
-**Modern StateHolder:**
-<br />
-StateHolder controls property of blockstates(waterlogged, facing, etc.)
-<br />
-Palladium improves collections, and cache values in StateHolder.
 
 **Shaders:**
 <br />
