@@ -31,5 +31,8 @@ public class PalladiumApi {
         return Optional.empty();
     }
 
-   
+    public static<E extends EntityAiMappingProcessor> void addAiProcessor(String modid, E processor) {
+        EntityAiMappingProcessors.PROCESSORS.put(modid, processor);
+    }
+
 }
