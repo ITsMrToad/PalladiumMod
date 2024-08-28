@@ -5,17 +5,20 @@ import com.mr_toad.palladium.integration.mod.XenonIntegration;
 
 import java.util.Objects;
 
-public class SodiumForksCompat {
+public class SodiumIntegration {
 
+    public static final Integration EMBEDDIUM = () -> "embeddium";
+    public static final Integration XENON = () -> "xenon";
+    
     public String getInstalled() {
         String s = "none";
 
-        if (XenonIntegration.INTEGRATION.isLoaded()) {
-            s = XenonIntegration.INTEGRATION.modid();
+        if (EMBEDDIUM.isLoaded()) {
+            s = EMBEDDIUM.modid();
         }
 
-        if (EmbeddiumIntegration.INTEGRATION.isLoaded()) {
-            s = EmbeddiumIntegration.INTEGRATION.modid();
+        if (XENON.isLoaded()) {
+            s = XENON.modid();
         }
 
         return s;
@@ -24,5 +27,4 @@ public class SodiumForksCompat {
     public boolean hasFork() {
         return !Objects.equals(this.getInstalled(), "none");
     }
-
 }
