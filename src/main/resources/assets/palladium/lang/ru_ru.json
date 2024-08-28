@@ -21,4 +21,9 @@
   "palladium.config.resource_key_deduplication.tooltip": "Удаляет дупликаты ключей ресурсов. (Требуется перезапуск)",
   "palladium.config.resource_location_deduplication": "Де-дуплицировать пути:",
   "palladium.config.resource_location_deduplication.tooltip": "Удаляет дупликаты путей ресурсов. (Требуется перезапуск)",
+   "palladium.config.lightweight_attack_ai": "Улучщеный поиск целей для мобов",
+  "palladium.config.lightweight_attack_ai.tooltip": "Оптимизирует поиск цели для волка и кошки. (Требуется перезагрузка мира)",
+  "palladium.config.lightweight_flee_ai": "Улучшенный поиск позиции для мобов",
+  "palladium.config.lightweight_flee_ai.tooltip": "Оптимизирует поиск позиции при выполнение задач 'побега' / 'паники' для волка и кролика. (Требуется перезагрузка мира)"
+
 }
