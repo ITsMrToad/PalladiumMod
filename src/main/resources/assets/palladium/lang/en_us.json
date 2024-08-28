@@ -22,4 +22,8 @@
   "palladium.config.composter_fix": "Composter fix",
   "palladium.config.resource_location_deduplication": "Resource location deduplication: ",
   "palladium.config.resource_location_deduplication.tooltip": "Deletes duplicates of chosen resource location. (Requires resource reload)"
+  "palladium.config.lightweight_attack_ai": "Improved target search for mobs",
+  "palladium.config.lightweight_attack_ai.tooltip": "Optimizes target finding of cat and wolf (Requires world restart)",
+  "palladium.config.lightweight_flee_ai": "Improved flee AI of mobs",
+  "palladium.config.lightweight_flee_ai.tooltip": "Optimizes position finding for flee goals of wolf and rabbit (Requires world restart)"
 }
