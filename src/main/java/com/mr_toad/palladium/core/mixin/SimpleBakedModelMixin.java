@@ -1,6 +1,6 @@
 package com.mr_toad.palladium.core.mixin;
 
-import com.mr_toad.palladium.common.util.ImmutableArrayList;
+import com.mr_toad.lib.mtjava.collections.ImmutableArrayList;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
