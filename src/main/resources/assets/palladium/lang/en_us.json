@@ -8,7 +8,7 @@
   "palladium.config.page.deduplication" : "Deduplication",
 
   "palladium.config.shader_uniform_caching": "Shader uniform caching",
-  "palladium.config.shader_uniform_caching.tooltip": "Caches shader uniforms, reducing the number of times they are invoked.",
+  "palladium.config.shader_uniform_caching.tooltip": "Caches shader uniforms, reducing the number of times they are invoked. (Requires resource reload)",
   "palladium.config.shaderi": "Shaderi caching",
   "palladium.config.shaderi.tooltip": "Caching shaderi - shader integers, reducing the number of times they are invoked. (Requires resource reload)",
   "palladium.config.shaderiLog": "ShaderiLog caching",
@@ -16,10 +16,10 @@
   "palladium.config.data_fix": "Disable data fixers",
   "palladium.config.data_fix.tooltip": "Data fixers are involved in transferring worlds from one version to another. \nEnabling this speed up game loading. \nBefore updating the game to a new version, it is recommended to disable this option(Requires resource reload)",
   "palladium.config.resource_key_deduplication": "Resource key deduplication",
-  "palladium.config.resource_key_deduplication.tooltip": "Deletes duplicates of resource key. (Needs restart)",
+  "palladium.config.resource_key_deduplication.tooltip": "Deletes duplicates of resource key. (Requires resource reload)",
   "palladium.config.quads_deduplication": "Model vertices deduplication",
   "palladium.config.quads_deduplication.tooltip": "Deletes duplicates vertices. (Requires resource reload)",
   "palladium.config.composter_fix": "Composter fix",
   "palladium.config.resource_location_deduplication": "Resource location deduplication: ",
-  "palladium.config.resource_location_deduplication.tooltip": "Deletes duplicates of chosen resource location. (Needs restart)"
+  "palladium.config.resource_location_deduplication.tooltip": "Deletes duplicates of chosen resource location. (Requires resource reload)"
 }
