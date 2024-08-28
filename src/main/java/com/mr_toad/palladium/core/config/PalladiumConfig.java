@@ -20,16 +20,19 @@ import java.nio.file.Path;
 public class PalladiumConfig {
 
     public boolean enableShaderUniformCaching = true;
-    public boolean enableModernStateHolder = true;
+    public boolean enableShaderICaching = true;
+   
+    public boolean enableShaderLogInfoCaching = true;
     public boolean enableResourceKeyDedup = true;
     public boolean enableQuadsDedup = true;
     public boolean enableComposterFix = true;
 
-    public int maxNbtSize = 0x1000000;
+    public boolean lightweightWolfAndCatAttackAi = true;
+    public boolean lightweightWolfAndRabbitFleeAi = true;
    
     public ResourceLocationDeduplication resourceLocationDeduplication = ResourceLocationDeduplication.ALL;
 
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(ResourceLocationDeduplication.class, new ResourceLocationDeduplication.Adapter()).excludeFieldsWithModifiers(Modifier.PRIVATE).create();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
 
     private PalladiumConfig() {}
 
