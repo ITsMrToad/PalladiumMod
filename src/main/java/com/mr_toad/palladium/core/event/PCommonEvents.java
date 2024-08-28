@@ -14,4 +14,12 @@ public class PCommonEvents {
     public static void registerReloadListeners(RegisterClientReloadListenersEvent event) {
         event.registerReloadListener(PalladiumCacheReloadListener.LISTENER);
     }
+
+    @Mod.EventBusSubscriber(modid = Palladium.MODID)
+    public static class WithoutBus {
+        @SubscribeEvent
+        public static void onJoin(EntityJoinLevelEvent event) {
+            EntityAiMappingProcessors.process(event.getLevel(), event.getEntity());
+        }
+    }
 }
