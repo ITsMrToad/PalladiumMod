@@ -26,6 +26,12 @@ Mod caches uniforms of shaders, reducing the number of times they are invoked.
 <br />
 Full compatible with Iris/Oculus.
 
+**Mob AI:**
+<br/>
+Improve cat and wolf attack AI
+<br/>
+Improve wolf and rabbit flee AI
+
 And a few more minor fixes/improves...
 
 <details>
