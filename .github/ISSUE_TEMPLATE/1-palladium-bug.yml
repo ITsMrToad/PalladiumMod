@@ -1,6 +1,6 @@
-name: Palladium bug
-about: Report a bug in palladium
-description: [bug]
+name: "Bug report"
+description: Report a bug in palladium
+labels: [bug]
 body:
   - type: dropdown
     id: oses
