@@ -1,6 +1,7 @@
 name: Bug report
 description: Report a bug in palladium
 labels: [bug]
+assignees: ITsMrToad
 body:
   - type: dropdown
     id: oses
