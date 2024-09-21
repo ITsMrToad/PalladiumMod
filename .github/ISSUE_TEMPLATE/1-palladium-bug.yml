@@ -1,4 +1,4 @@
-name: "Bug report"
+name: Bug report
 description: Report a bug in palladium
 labels: [bug]
 body:
@@ -11,7 +11,7 @@ body:
         - Windows
         - MacOS
         - Linux
- - type: dropdown
+  - type: dropdown
     id: loaders
     attributes:
       label: What the loader are you seeing the problem on?
@@ -32,10 +32,9 @@ body:
       description: Steps to reproduce the behavior.
     validations:
       required: false
-   - type: input
+  - type: input
     id: version
     attributes:
       label: What version of the palladium are you using?
     validations:
       required: true
-    
