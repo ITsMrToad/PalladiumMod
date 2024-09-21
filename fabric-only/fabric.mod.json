@@ -1,0 +1,47 @@
+{
+	"schemaVersion": 1,
+	"id": "palladium",
+	"version": "${version}",
+	"name": "Palladium",
+	"description": "Another optimizing mod, provides deduplication, shader caches and improved memory control.",
+	"authors": [
+		"Mr.Toad"
+	],
+	"contact": {
+		"homepage": "https://github.com/ITsMrToad/PalladiumMod",
+		"sources": "https://github.com/ITsMrToad/PalladiumMod",
+		"issues": "https://github.com/ITsMrToad/PalladiumMod/issues"
+	},
+	"license": "GPL V3",
+	"icon": "assets/palladium/logo.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"com.mr_toad.palladium.client.PalladiumClient"
+		],
+
+		"main": [
+			"com.mr_toad.palladium.core.Palladium"
+		]
+	},
+	"mixins": [
+		"palladium.mixins.json"
+	],
+	"accessWidener": "palladium.accesswidener",
+	"depends": {
+		"toadlib-fabric": ">=1.1.1",
+		"fabricloader": ">=0.14.0",
+		"fabric-api": "*",
+		"minecraft": "~1.20",
+		"java": ">=17"
+	},
+	"custom": {
+		"modmenu": {
+			"update_checker": true,
+			"links": {
+				"modmenu.kofi": "https://ko-fi.com/mr_toad",
+				"modmenu.modrinth": "https://modrinth.com/mod/mpalladium"
+			}
+		}
+	}
+}
