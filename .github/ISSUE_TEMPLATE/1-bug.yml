@@ -32,9 +32,10 @@ body:
       description: Steps to reproduce the behavior.
     validations:
       required: false
-   - type: textarea
+   - type: input
+    id: version
     attributes:
-      label: Palladium version
+      label: What version of the palladium are you using?
     validations:
-      required: false
+      required: true
     
