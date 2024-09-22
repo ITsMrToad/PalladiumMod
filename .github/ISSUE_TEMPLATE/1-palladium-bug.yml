@@ -1,6 +1,6 @@
 name: Bug report
 description: Report a bug in palladium
-labels: [bug]
+labels: [bug, compat]
 assignees: ITsMrToad
 body:
   - type: dropdown
