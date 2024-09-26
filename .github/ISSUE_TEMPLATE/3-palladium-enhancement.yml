@@ -3,7 +3,7 @@ description: Suggest an idea
 labels: [enhancement]
 assignees: ITsMrToad
 body:
-- type: dropdown
+  - type: dropdown
     id: types
     attributes:
       label: What is your idea?
@@ -13,8 +13,8 @@ body:
         - Fix
         - Compat
         
-- type: textarea
-    attributes:
-      label: Feature
-    validations:
-      required: true
+  - type: textarea
+      attributes:
+        label: Feature
+      validations:
+        required: true
