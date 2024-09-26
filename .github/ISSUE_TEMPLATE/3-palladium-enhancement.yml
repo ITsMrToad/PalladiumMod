@@ -12,9 +12,13 @@ body:
         - Optimization
         - Fix
         - Compat
-        
   - type: textarea
-      attributes:
-        label: Feature
-      validations:
-        required: true
+    attributes:
+      label: Idea
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Solution(optional)
+    validations:
+      required: false
