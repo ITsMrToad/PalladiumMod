@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an idea
+labels: [enhancement]
+assignees: ITsMrToad
+body:
+- type: dropdown
+    id: types
+    attributes:
+      label: What is your idea?
+      multiple: false
+      options:
+        - Optimization
+        - Fix
+        - Compat
+        
+- type: textarea
+    attributes:
+      label: Feature
+    validations:
+      required: true
