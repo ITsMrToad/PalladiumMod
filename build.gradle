@@ -1,136 +1,100 @@
 plugins {
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
+    id 'net.neoforged.gradle.userdev' version '7.0.145'
+    id "idea"
+    id "maven-publish"
 }
 
-version = mod_version
+version = minecraft_version + mod_version
 group = mod_group_id
 
 base {
-    archivesName = mod_id
+    archivesName = mod_name
 }
 
-mixin {
-    add sourceSets.main, "palladium.refmap.json"
-}
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
-minecraft {
-
-    mappings channel: mapping_channel, version: mapping_version
-    copyIdeResources = true
-
-    runs {
-        configureEach {
-            workingDirectory project.file('run')
-            property 'forge.logging.console.level', 'debug'
-            arg "-mixin.config=" + mod_id + ".mixins.json"
-            property "mixin.env.remapRefMap", "true"
-            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        client {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-        }
-
-        server {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            args '--nogui'
-        }
-
-
-        data {
-            workingDirectory project.file('run-data')
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-        }
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
-dependencies {
-    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+    }
 
-    implementation fg.deobf("maven.modrinth:toadlib:${toadlib}")
+    client {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
 
-    implementation fg.deobf("maven.modrinth:embeddium:${embeddium}")
-    implementation fg.deobf("maven.modrinth:oculus:${oculus}")
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
+
+    data {
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
 }
 
 repositories {
+    mavenLocal()
     exclusiveContent {
         forRepository {
             maven {
                 name = "Modrinth"
-                url = "https://api.modrinth.com/maven"
+                url = uri("https://api.modrinth.com/maven")
             }
         }
-        forRepositories(fg.repository)
         filter {
-            includeGroup "maven.modrinth"
+            includeGroup("maven.modrinth")
         }
     }
 }
 
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
 
-tasks.named('processResources', ProcessResources).configure {
+    implementation "maven.modrinth:toadlib:${toadlib}"
+    implementation "maven.modrinth:embeddium:${embeddium}"
+    implementation "maven.modrinth:iris:${iris}"
+}
+
+tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
-            minecraft_version: minecraft_version,
+            minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version,
-            forge_version_range: forge_version_range,
-            loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name,
-            mod_license: mod_license,
-            mod_version: mod_version,
-            mod_authors: mod_authors,
-            mod_description: mod_description,
-            toadlib_version_range: toadlib_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
     ]
     inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
     }
 }
 
-tasks.named('jar', Jar).configure {
-    manifest {
-        attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1',
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs"            : mod_id + ".mixins.json"
-        ])
-    }
-    finalizedBy 'reobfJar'
-}
-
-
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
 }
 
 tasks.withType(JavaCompile).configureEach {
