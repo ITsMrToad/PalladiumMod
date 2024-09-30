@@ -1,0 +1,29 @@
+{
+  "palladium.resource_loc_dedup.all": "Alle",
+  "palladium.resource_loc_dedup.none": "Keine",
+  "palladium.resource_loc_dedup.only_rl": "Nur Ressourcen Ort",
+  "palladium.resource_loc_dedup.only_mrl": "Nur Modell rl",
+
+  "palladium.config.page.shader" : "Shaders",
+  "palladium.config.page.deduplication" : "Deduplizierung",
+
+  "palladium.config.shader_uniform_caching": "Shader einheitliches Caching",
+  "palladium.config.shader_uniform_caching.tooltip": "Zwischenspeichern von Shader-Uniformen, wodurch die Anzahl der Abfragen reduziert wird. (Erfordert das Neuladen von Ressourcen)",
+  "palladium.config.shaderi": "Shaderi caching",
+  "palladium.config.shaderi.tooltip": "Caching shaderi - Shader Integers, wodurch die Anzahl der Aufrufe reduziert wird. (Erfordert das Neuladen der Ressourcen)",
+  "palladium.config.shaderiLog": "ShaderiLog caching",
+  "palladium.config.shaderiLog.tooltip": "Caching shaderiLog - Shader Integers, wodurch die Anzahl der Aufrufe reduziert wird. (Erfordert das Neuladen der Ressourcen)",
+  "palladium.config.data_fix": "Deaktiviere Daten fixer",
+  "palladium.config.data_fix.tooltip": "Datenfixierer sind an der Übertragung von Welten von einer Version zur anderen beteiligt. \nDie Aktivierung dieser Option beschleunigt das Laden des Spiels. \nVor der Aktualisierung des Spiels auf eine neue Version wird empfohlen, diese Option zu deaktivieren (erfordert ein Neuladen der Ressourcen).",
+  "palladium.config.resource_key_deduplication": "Ressourcen Schlüssel deduplizierung",
+  "palladium.config.resource_key_deduplication.tooltip": "Löscht Duplikate des Ressourcenschlüssels. (Erfordert das Neuladen der Ressourcen)",
+  "palladium.config.quads_deduplication": "Model vertices deduplizierung",
+  "palladium.config.quads_deduplication.tooltip": "Löscht doppelte vertices. (Erfordert das Neuladen der Ressourcen)",
+  "palladium.config.composter_fix": "Komposter fix",
+  "palladium.config.resource_location_deduplication": "Deduplizierung von Ressourcenstandorten: ",
+  "palladium.config.resource_location_deduplication.tooltip": "Löscht Duplikate des gewählten Ressourcenorts. (Erfordert das Neuladen der Ressourcen)"
+  "palladium.config.lightweight_attack_ai": "Verbesserte Zielsuche für Mobs",
+  "palladium.config.lightweight_attack_ai.tooltip": "Optimiert die Zielsuche von Katze und Wolf (erfordert einen Neustart der Welt)",
+  "palladium.config.lightweight_flee_ai": "Verbessere flucht KI von Mobs",
+  "palladium.config.lightweight_flee_ai.tooltip": "Optimiert die Positionssuche für Fluchtziele von Wolf und Hase (erfordert einen Neustart der Welt)"
+}
