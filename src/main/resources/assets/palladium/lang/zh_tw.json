@@ -4,14 +4,26 @@
   "palladium.resource_loc_dedup.only_rl": "僅資源位置",
   "palladium.resource_loc_dedup.only_mrl": "僅模型資源位置",
 
-  "palladium.config" : "一般",
+  "palladium.config.page.shader": "著色器",
+  "palladium.config.page.deduplication": "去重複",
 
   "palladium.config.shader_uniform_caching": "著色器統一變數快取",
   "palladium.config.shader_uniform_caching.tooltip": "快取著色器統一變數，減少它們被呼叫的次數。",
+  "palladium.config.shaderi": "Shaderi 快取",
+  "palladium.config.shaderi.tooltip": "快取 shaderi - 著色器整數，減少它們被呼叫的次數。（需要重新載入資源）",
+  "palladium.config.shaderiLog": "ShaderiLog 快取",
+  "palladium.config.shaderiLog.tooltip": "快取 shaderiLog - 著色器整數對數，減少它們被呼叫的次數。（需要重新載入資源）",
+  "palladium.config.data_fix": "停用資料修復器",
+  "palladium.config.data_fix.tooltip": "資料修復器參與將世界從一個版本轉移到另一個版本。\n啟用此功能可以加快遊戲載入速度。\n在將遊戲更新到新版本之前，建議停用此選項（需要重新載入資源）",
   "palladium.config.resource_key_deduplication": "資源鍵值去重複",
   "palladium.config.resource_key_deduplication.tooltip": "刪除重複的資源鍵值。（需要重新啟動）",
+  "palladium.config.quads_deduplication": "模型頂點去重複",
+  "palladium.config.quads_deduplication.tooltip": "刪除重複的頂點。（需要重新載入資源）",
+  "palladium.config.composter_fix": "堆肥桶修復",
   "palladium.config.resource_location_deduplication": "資源位置去重複：",
   "palladium.config.resource_location_deduplication.tooltip": "刪除所選資源位置的重複項。（需要重新啟動）",
-  "palladium.config.modern_state_holder": "新式狀態持有者",
-  "palladium.config.modern_state_holder.tooltip": "快取方塊，改進集合。如果你有方塊問題，請停用此選項。（需要重新啟動）"
+  "palladium.config.lightweight_attack_ai": "改進生物的目標搜尋",
+  "palladium.config.lightweight_attack_ai.tooltip": "最佳化貓和狼的目標尋找（需要重新啟動世界）",
+  "palladium.config.lightweight_flee_ai": "改進生物的逃跑 AI",
+  "palladium.config.lightweight_flee_ai.tooltip": "最佳化狼和兔的逃跑目標位置尋找（需要重新啟動世界）"
 }
