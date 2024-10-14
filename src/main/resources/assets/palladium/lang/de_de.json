@@ -21,7 +21,7 @@
   "palladium.config.quads_deduplication.tooltip": "Löscht doppelte vertices. (Erfordert das Neuladen der Ressourcen)",
   "palladium.config.composter_fix": "Komposter fix",
   "palladium.config.resource_location_deduplication": "Deduplizierung von Ressourcenstandorten: ",
-  "palladium.config.resource_location_deduplication.tooltip": "Löscht Duplikate des gewählten Ressourcenorts. (Erfordert das Neuladen der Ressourcen)"
+  "palladium.config.resource_location_deduplication.tooltip": "Löscht Duplikate des gewählten Ressourcenorts. (Erfordert das Neuladen der Ressourcen)",
   "palladium.config.lightweight_attack_ai": "Verbesserte Zielsuche für Mobs",
   "palladium.config.lightweight_attack_ai.tooltip": "Optimiert die Zielsuche von Katze und Wolf (erfordert einen Neustart der Welt)",
   "palladium.config.lightweight_flee_ai": "Verbessere flucht KI von Mobs",
