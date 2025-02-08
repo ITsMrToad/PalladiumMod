@@ -9,11 +9,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 public abstract class ComposterBlockMixin {
 
+    private static final Supplier<int[]> ZERO = () -> new int[0];
+    private static final Supplier<int[]> ONE = () -> new int[]{0};
+    
     @Mixin(targets = "net.minecraft.world.level.block.ComposterBlock.EmptyContainer")
     public static class EmptyContainerMixin {
         @Inject(method = "getSlotsForFace", at = @At("RETURN"), cancellable = true)
         public void getSlotsForFace(Direction direction, CallbackInfoReturnable<int[]> cir) {
-            cir.setReturnValue(new int[0]);
+            if (Palladium.CONFIG.enableComposterFix.get()) {
+                cir.setReturnValue(ZERO.get());
+            }
         }
     }
 
@@ -21,10 +26,12 @@ public abstract class ComposterBlockMixin {
     public static class InputContainerMixin {
         @Inject(method = "getSlotsForFace", at = @At("RETURN"), cancellable = true)
         public void getSlotsForFace(Direction direction, CallbackInfoReturnable<int[]> cir) {
-            if(direction == Direction.UP) {
-                cir.setReturnValue(new int[]{0});
-            } else {
-                cir.setReturnValue(new int[0]);
+            if (Palladium.CONFIG.enableComposterFix.get()) {
+                if (direction == Direction.UP) {
+                    cir.setReturnValue(ONE.get());
+                } else {
+                    cir.setReturnValue(ZERO.get());
+                }
             }
         }
     }
@@ -33,10 +40,12 @@ public abstract class ComposterBlockMixin {
     public static class OutputContainerMixin {
         @Inject(method = "getSlotsForFace", at = @At("RETURN"), cancellable = true)
         public void getSlotsForFace(Direction direction, CallbackInfoReturnable<int[]> cir) {
-            if(direction == Direction.DOWN) {
-                cir.setReturnValue(new int[]{0});
-            } else {
-                cir.setReturnValue(new int[0]);
+            if (Palladium.CONFIG.enableComposterFix.get()) {
+                if (direction == Direction.DOWN) {
+                    cir.setReturnValue(ONE.get());
+                } else {
+                    cir.setReturnValue(ZERO.get());
+                }
             }
         }
     }
