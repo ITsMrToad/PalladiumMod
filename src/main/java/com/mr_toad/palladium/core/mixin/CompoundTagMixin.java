@@ -39,10 +39,20 @@ public abstract class CompoundTagMixin {
 
     @Inject(method = "<init>(Ljava/util/Map;)V", at = @At("RETURN"))
     private void straightElementMap(Map<String, Tag> tags, CallbackInfo ci) {
-        this.tags = tags instanceof Object2ObjectMap ? tags : new Object2ObjectOpenHashMap<>(tags);
+        if (Palladium.CONFIG.nbtOptimizations.get()) {
+            this.tags = tags instanceof Object2ObjectMap ? tags : new Object2ObjectOpenHashMap<>(tags);
+        }
     }
 
-  @SuppressWarnings("unchecked")
+    @Inject(method = "getAllKeys", at = @At("RETURN"), cancellable = true)
+    public void getAllKeysAsReference(CallbackInfoReturnable<Set<String>> cir) {
+        if (Palladium.CONFIG.nbtOptimizations.get()) {
+            Set<String> superr = cir.getReturnValue();
+            cir.setReturnValue(superr.isEmpty() ? ReferenceSets.emptySet() : new ReferenceOpenHashSet<>(superr));
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
     @Redirect(method = "equals", at = @At(value = "INVOKE", target = "java/util/Objects.equals(Ljava/lang/Object;Ljava/lang/Object;)Z"))
     private boolean skullEquals(Object object1, Object object2) {
         if (Objects.equal(object1, object2)) {
