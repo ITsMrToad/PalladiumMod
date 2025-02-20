@@ -1,6 +1,4 @@
 {
-  "modmenu.descriptionTranslation.palladium": "Іще один мод для оптимізації гри, забезпечує де-дублікацію, кешування шейдерів і покращений контроль RAM",
-
   "palladium.resource_loc_dedup.all": "Усі",
   "palladium.resource_loc_dedup.none": "Нічого",
   "palladium.resource_loc_dedup.only_rl": "Лише шляхи ресурсів",
