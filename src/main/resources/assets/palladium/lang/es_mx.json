@@ -1,0 +1,29 @@
+{
+  "palladium.resource_loc_dedup.all": "Todo",
+  "palladium.resource_loc_dedup.none": "Ninguno",
+  "palladium.resource_loc_dedup.only_rl": "Solo ubicación de recursos",
+  "palladium.resource_loc_dedup.only_mrl": "Solo modelo rl",
+
+  "palladium.config.page.shader" : "Shaders",
+  "palladium.config.page.deduplication" : "Desduplicación",
+
+  "palladium.config.shader_uniform_caching": "Caché uniforme de shaders",
+  "palladium.config.shader_uniform_caching.tooltip": "Cachea uniformes de shaders, reduciendo el número de veces que se invocan.",
+  "palladium.config.vertex_attribute": "Caché de atributos de vértices",
+  "palladium.config.vertex_attribute.tooltip": "Cachea atributos de vértices, reduciendo el número de veces que se invocan.",
+  "palladium.config.mipmap_level": "Caché de niveles de mipmap",
+  "palladium.config.mipmap_level.tooltip": "Cachea niveles de mipmap, reduciendo el número de veces que se invocan.",
+  "palladium.config.data_fix": "Deshabilitar arreglos de datos",
+  "palladium.config.data_fix.tooltip": "Los arreglos de datos están involucrados en la transferencia de mundos de una versión a otra. \nHabilitar esto acelera la carga del juego. \nAntes de actualizar el juego a una nueva versión, se recomienda deshabilitar esta opción.",
+  "palladium.config.resource_key_deduplication": "Desduplicación de claves de recursos",
+  "palladium.config.resource_key_deduplication.tooltip": "Elimina duplicados de claves de recursos.",
+  "palladium.config.quads_deduplication": "Desduplicación de vértices de modelos",
+  "palladium.config.quads_deduplication.tooltip": "Elimina vértices duplicados.",
+  "palladium.config.composter_fix": "Arreglo de compostador",
+  "palladium.config.resource_location_deduplication": "Desduplicación de ubicación de recursos: ",
+  "palladium.config.resource_location_deduplication.tooltip": "Elimina duplicados de la ubicación de recursos elegida.",
+  "palladium.config.lightweight_attack_ai": "Búsqueda de objetivos mejorada para mobs",
+  "palladium.config.lightweight_attack_ai.tooltip": "Optimiza la búsqueda de objetivos de gatos y lobos.",
+  "palladium.config.lightweight_flee_ai": "IA de huida mejorada para mobs",
+  "palladium.config.lightweight_flee_ai.tooltip": "Optimiza la búsqueda de posiciones para objetivos de huida de lobos y conejos."
+}
