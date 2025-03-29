@@ -13,6 +13,7 @@
   "palladium.config.vertex_attribute.tooltip": "Caching vertex attributes, reducing the number of times they are invoked.",
   "palladium.config.mipmap_level": "Mipmap level caching",
   "palladium.config.mipmap_level.tooltip": "Caching mipmap levels, reducing the number of times they are invoked.",
+  "palladium.config.fast_shaders": "Accelerates loading of shader programs.",
   "palladium.config.data_fix": "Disable data fixers",
   "palladium.config.data_fix.tooltip": "Data fixers are involved in transferring worlds from one version to another. \nEnabling this speed up game loading. \nBefore updating the game to a new version, it is recommended to disable this option.",
   "palladium.config.resource_key_deduplication": "Resource key deduplication",
